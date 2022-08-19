@@ -37,14 +37,12 @@
 
         function win() {
           winCount++;
-          let winMsg = `you win this round! ${playerSelection} beats ${computerSelection}.`;
-          return winMsg;
+          return `you win this round! ${playerSelection} beats ${computerSelection}.`;
         }
 
         function lose() {
           winCount--;
-          let loseMsg = `you lose this round! ${computerSelection} beats ${playerSelection}.`;
-          return loseMsg;
+          return `you lose this round! ${computerSelection} beats ${playerSelection}.`;
         }
 
         if (
@@ -57,8 +55,7 @@
         }
 
         if (playerSelection === computerSelection) {
-          let tieMsg = `It's a tie! You both chose ${computerSelection} .`;
-          return tieMsg;
+          return `It's a tie! You both chose ${computerSelection} .`;
         }
 
         if (playerSelection === "rock") {
