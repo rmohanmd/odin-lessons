@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF8" />
-    <script src="rockPaperScissors.js"></script>
-    <!--
+<!--
       To Do:
 
       1. Change winMsg, loseMsg & tieMsg using backticks.
       2. Make functions for win, loss since it's repeated. 
     -->
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF8" />
+    <script src="rockPaperScissors.js"></script>
     <title>Rock Paper Scissors</title>
   </head>
   <body>
@@ -23,13 +23,12 @@
       // adding 1 changes it from 0-2 -> 1-3.
       function getComputerChoice() {
         let compChoice = Math.floor(Math.random() * 3 + 1);
-        if (compChoice === 1) {
-          return "rock";
-        } else if (compChoice === 2) {
-          return "paper";
-        } else {
-          return "scissors";
-        }
+        const options = {
+          1: "rock",
+          2: "paper",
+          3: "scissors",
+        };
+        return options[compChoice];
       }
 
       //Logic of rock paper scissors.
