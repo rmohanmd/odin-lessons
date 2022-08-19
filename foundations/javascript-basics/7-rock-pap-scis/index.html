@@ -12,6 +12,8 @@
     2. Function to randomly determine computers choice of R-P-S.
     3. Compare userChoice to computerChoice and determine winner or tie. 
     4. output appropriate message
+
+    5. 1 = rock ; 2 = paper; 3 = scissors
     
 -->
 <!DOCTYPE html>
@@ -22,6 +24,17 @@
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      function getComputerChoice() {
+        let compChoice = Math.floor(Math.random() * 3 + 1);
+        if (compChoice === 1) {
+          return "rock";
+        } else if (compChoice === 2) {
+          return "paper";
+        } else {
+          return "scissors";
+        }
+      }
+    </script>
   </body>
 </html>
