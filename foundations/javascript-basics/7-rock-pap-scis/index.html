@@ -34,40 +34,52 @@
 
       function playRound(playerSelection, computerSelection) {
         playerSelection = playerSelection.toLowerCase(); //change player entry to all lowercase
-        let tieMsg = `It's a tie! You both chose ${computerSelection} .`;
-        let winMsg = `you win this round! ${playerSelection} beats ${computerSelection}.`;
-        let loseMsg = `you lose this round! ${computerSelection} beats ${playerSelection}.`;
 
-        if (playerSelection === computerSelection) {
-          return tieMsg;
-        } else if (playerSelection === "rock") {
-          if (computerSelection === "scissors") {
-            winCount++;
-            return winMsg;
-          } else {
-            winCount--;
-            return loseMsg;
-          }
-        } else if (playerSelection === "paper") {
-          if (computerSelection === "rock") {
-            winCount++;
-            return winMsg;
-          } else {
-            winCount--;
-            return loseMsg;
-          }
-        } else if (playerSelection === "scissors") {
-          if (computerSelection === "paper") {
-            winCount++;
-            return winMsg;
-          } else {
-            winCount--;
-            return loseMsg;
-          }
-        } else {
+        function win() {
+          winCount++;
+          let winMsg = `you win this round! ${playerSelection} beats ${computerSelection}.`;
+          return winMsg;
+        }
+
+        function lose() {
+          winCount--;
+          let loseMsg = `you lose this round! ${computerSelection} beats ${playerSelection}.`;
+          return loseMsg;
+        }
+
+        if (
+          playerSelection !== "rock" &&
+          playerSelection !== "paper" &&
+          playerSelection !== "scissors"
+        ) {
           gameCounter--; //adjust gameCounter to null an invalid game so 5 complete games can be played.
           return "Invalid Choice! please only enter either rock, paper scissors";
         }
+
+        if (playerSelection === computerSelection) {
+          let tieMsg = `It's a tie! You both chose ${computerSelection} .`;
+          return tieMsg;
+        }
+
+        if (playerSelection === "rock") {
+          if (computerSelection === "scissors") {
+            return win();
+          }
+          return lose();
+        }
+
+        if (playerSelection === "paper") {
+          if (computerSelection === "rock") {
+            return win();
+          }
+          return lose();
+        }
+
+        // by this point, logic has made it so player selection has to be scissor therefore only 2 scenarios remain.
+        if (computerSelection === "paper") {
+          return win();
+        }
+        return lose();
       }
 
       //reset all counters
