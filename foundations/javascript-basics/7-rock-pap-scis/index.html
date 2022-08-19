@@ -17,6 +17,8 @@
 
     * case in sensitive  player selection. 
     * else statement for improperly entered word.
+
+    *tie check can be made into one statement playerselec === computer selec
     
 -->
 <!DOCTYPE html>
@@ -28,6 +30,12 @@
   </head>
   <body>
     <script>
+      let gameCounter;
+      let playerWinCount;
+      let computerWinCount;
+      let tieCount;
+      //let playerSelection = "";
+
       function getComputerChoice() {
         let compChoice = Math.floor(Math.random() * 3 + 1);
         if (compChoice === 1) {
@@ -43,42 +51,77 @@
         playerSelection = playerSelection.toLowerCase();
         let tieMsg = "It's a tie! You both chose " + computerSelection + ".";
         let winMsg =
-          "You win! " + playerSelection + " beats " + computerSelection + ".";
+          "You win this round! " +
+          playerSelection +
+          " beats " +
+          computerSelection +
+          ".";
         let loseMsg =
-          "You lose! " + computerSelection + " beats " + playerSelection + ".";
-        if (playerSelection === "rock") {
-          if (computerSelection === "rock") {
-            return tieMsg;
-          } else if (computerSelection === "scissor") {
+          "You lost this round! " +
+          computerSelection +
+          " beats " +
+          playerSelection +
+          ".";
+
+        if (playerSelection === computerSelection) {
+          tieCount++;
+          return tieMsg;
+        } else if (playerSelection === "rock") {
+          if (computerSelection === "scissors") {
+            playerWinCount++;
             return winMsg;
           } else {
+            computerWinCount++;
             return loseMsg;
           }
         } else if (playerSelection === "paper") {
-          if (computerSelection === "paper") {
-            return tieMsg;
-          } else if (computerSelection === "rock") {
+          if (computerSelection === "rock") {
+            playerWinCount++;
             return winMsg;
           } else {
+            computerWinCount++;
             return loseMsg;
           }
-        } else if (playerSelection === "scissor") {
-          if (computerSelection === "scissor") {
-            return tieMsg;
-          } else if (computerSelection === "paper") {
+        } else if (playerSelection === "scissors") {
+          if (computerSelection === "paper") {
+            playerWinCount++;
             return winMsg;
           } else {
+            computerWinCount++;
             return loseMsg;
           }
         } else {
+          gameCounter--;
           return "Invalid Choice! please only enter either rock, paper scissors";
         }
       }
+      function game() {
+        resetCount();
+        for (; gameCounter < 5; gameCounter++) {
+          playerSelection = prompt(
+            "Choose either Rock, Paper or Scissors. Spelling matters",
+            ""
+          );
+          console.log(playRound(playerSelection, getComputerChoice()));
+        }
+        if (playerWinCount > computerWinCount) {
+          console.log(`You Win!`);
+        } else if (playerWinCount < computerWinCount) {
+          console.log("You Lose! :(");
+        } else {
+          console.log("It's a tie! No one wins");
+        }
+        console.log(
+          " " + playerWinCount + " " + computerWinCount + " " + tieCount
+        );
+      }
 
-      const playerSelection = "rock";
-      const computerSelection = getComputerChoice();
-
-      console.log(playRound(playerSelection, computerSelection));
+      function resetCount() {
+        gameCounter = 0;
+        playerWinCount = 0;
+        computerWinCount = 0;
+        tieCount = 0;
+      }
     </script>
   </body>
 </html>
