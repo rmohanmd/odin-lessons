@@ -39,30 +39,29 @@
         let loseMsg = `you lose this round! ${computerSelection} beats ${playerSelection}.`;
 
         if (playerSelection === computerSelection) {
-          tieCount++;
           return tieMsg;
         } else if (playerSelection === "rock") {
           if (computerSelection === "scissors") {
-            playerWinCount++;
+            winCount++;
             return winMsg;
           } else {
-            computerWinCount++;
+            winCount--;
             return loseMsg;
           }
         } else if (playerSelection === "paper") {
           if (computerSelection === "rock") {
-            playerWinCount++;
+            winCount++;
             return winMsg;
           } else {
-            computerWinCount++;
+            winCount--;
             return loseMsg;
           }
         } else if (playerSelection === "scissors") {
           if (computerSelection === "paper") {
-            playerWinCount++;
+            winCount++;
             return winMsg;
           } else {
-            computerWinCount++;
+            winCount--;
             return loseMsg;
           }
         } else {
@@ -74,9 +73,7 @@
       //reset all counters
       function resetCount() {
         gameCounter = 0;
-        playerWinCount = 0;
-        computerWinCount = 0;
-        tieCount = 0;
+        winCount = 0;
       }
 
       function game() {
@@ -88,16 +85,13 @@
           );
           console.log(playRound(playerSelection, getComputerChoice()));
         }
-        if (playerWinCount > computerWinCount) {
-          console.log(`You Win!`);
-        } else if (playerWinCount < computerWinCount) {
+        if (winCount > 0) {
+          console.log("You Win!");
+        } else if (winCount < 0) {
           console.log("You Lose! :(");
         } else {
           console.log("It's a tie! No one wins");
         }
-        console.log(
-          " " + playerWinCount + " " + computerWinCount + " " + tieCount
-        );
       }
     </script>
   </body>
