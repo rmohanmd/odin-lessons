@@ -1,0 +1,113 @@
+[33mcommit 5eab4cde1bdcb1cf558ab821972d6ff3a7a36e11[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 22:59:36 2022 -0400
+
+    Objective and Pseudocode determined
+    
+    I've written out the objective of the program and the pseudocode to diagram out the solution
+
+[33mcommit 8aca59c589bbe2879dcb86aa7944cc1fff908cf5[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 21:23:53 2022 -0400
+
+    Initiated rock paper scissor file folder
+
+[33mcommit 837be062c3952288e770b6e24af5dd137882b526[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 20:14:21 2022 -0400
+
+    fixed syntax error of addEventListener & fixed logic with random numb gen
+
+[33mcommit 372c7b281667a16696b2782e749024a199d98426[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 19:58:55 2022 -0400
+
+    debugged syntax error Ln88 addEventListener
+
+[33mcommit cb7b33a7ceae24ef0f6da7b227dd55f844d8133d[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 19:49:53 2022 -0400
+
+    created copy of MDN number-game-error file to practice debugging
+
+[33mcommit 8de2c7cb82d19bee3f4e04cb1192bde861d9f35a[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 19:47:32 2022 -0400
+
+    remove old directory
+
+[33mcommit b8894385437e993f4b6d9f5ac11d8915efab9baf[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 19:38:09 2022 -0400
+
+    reorg/rename of file structure
+
+[33mcommit b2a08234f26d04168971b3582f2bd984c1f54103[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 19:36:21 2022 -0400
+
+    folder name cahnge
+
+[33mcommit 2f5f0196d7ff7f2f0368358aa2a6bd920121568b[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 15:49:34 2022 -0400
+
+    changed variable name to be more discriptive
+
+[33mcommit bd155baee3426db78083efe6d7240c907079ab60[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 15:34:00 2022 -0400
+
+    javascript fundy lesson 3 completed assignments
+
+[33mcommit 85b96d71b05e9c17f74fb924af2abceff2b44607[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Thu Aug 18 15:30:28 2022 -0400
+
+    Blank javascript template
+
+[33mcommit fd51352c312b1f7ba2fe445cba28ebfc48286fb9[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Tue Aug 16 15:38:33 2022 -0400
+
+    created simple login pg to showcase operators and if conditions
+
+[33mcommit 60b4133fddb5276d42a1ef5972fac07624205726[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Tue Aug 16 15:37:12 2022 -0400
+
+    string number to num converter idea
+
+[33mcommit 5a97c41a06ece98bcfb5ef644bf7818ccf8ade93[m
+Author: Rahul Mohan <rmohan.md@gmail.com>
+Date:   Tue Aug 16 11:59:41 2022 -0400
+
+    created foundations 2 lesson folder
+
+[33mcommit 87d871cbb96be54db15876a2d39e39ee48c17b44[m
+Author: rmohanmd <rmohan.md@gmail.com>
+Date:   Mon Aug 15 19:50:30 2022 -0400
+
+    finished tasks in JS fundamentals 1
+
+[33mcommit e216e0a52706810fa8e7e64c75a25da5f8f452cc[m
+Author: rmohanmd <88761343+rmohanmd@users.noreply.github.com>
+Date:   Mon Aug 15 16:59:07 2022 -0400
+
+    Rename 1-js-fundy/index.html to foundations/dynamic-web/1-js-fundy/index.html
+    
+    moving files
+
+[33mcommit 99351fbc9a029e699a2269d23e00c9dce108d06e[m
+Author: rmohanmd <88761343+rmohanmd@users.noreply.github.com>
+Date:   Mon Aug 15 16:56:18 2022 -0400
+
+    new folder structure
+    
+    New folder structure
+
+[33mcommit 69bf84d5bd4b3ec980151a7ec57fd4fcdb1a3eac[m
+Author: Rahul Mohan <rmohan.md@gmail.com>
+Date:   Mon Aug 15 16:02:59 2022 -0400
+
+    add JavaScript Lesson 1 folder
