@@ -25,3 +25,14 @@ p.textContent = "ME TOO!";
 anotherDiv.appendChild(h1, p);
 
 container.appendChild(anotherDiv);
+
+//button click action
+const btn = document.querySelector("#btn");
+//this method inserts the onclick event into the html dom via javascript.
+//cleaner but still only 1 onclick event allowed per DOM element
+btn.onclick = () => alert("Hello World");
+
+//this method allows multiple click events, if needed, for the same DOM element
+btn.addEventListener("click", () => {
+  alert("Hello World");
+});
