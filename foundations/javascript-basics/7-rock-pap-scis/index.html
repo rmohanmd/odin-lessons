@@ -13,14 +13,14 @@
   </head>
   <body>
     <div>
+      <h1 class="score"></h1>
       <button class="rock">ROCK</button>
       <button class="paper">PAPER</button>
       <button class="scissors">SCISSORS</button>
       <h1 class="msg"></h1>
+      <h1 class="winner"></h1>
     </div>
     <script>
-      let gameCounter;
-      let winCount;
       //Get random number between (1-3) and assign a value of Rock Paper Scissors
       // adding 1 changes it from 0-2 -> 1-3.
       function getComputerChoice() {
@@ -39,23 +39,23 @@
         playerSelection = playerSelection.toLowerCase(); //change player entry to all lowercase
 
         function win() {
-          winCount++;
+          playerWinCount++;
           return `you win this round! ${playerSelection} beats ${computerSelection}.`;
         }
 
         function lose() {
-          winCount--;
+          compWinCount++;
           return `you lose this round! ${computerSelection} beats ${playerSelection}.`;
         }
 
-        if (
-          playerSelection !== "rock" &&
-          playerSelection !== "paper" &&
-          playerSelection !== "scissors"
-        ) {
-          gameCounter--; //adjust gameCounter to null an invalid game so 5 complete games can be played.
-          return "Invalid Choice! please only enter either rock, paper scissors";
-        }
+        // if (
+        //   playerSelection !== "rock" &&
+        //   playerSelection !== "paper" &&
+        //   playerSelection !== "scissors"
+        // ) {
+        //   gameCounter--; //adjust gameCounter to null an invalid game so 5 complete games can be played.
+        //   return "Invalid Choice! please only enter either rock, paper scissors";
+        // }
 
         if (playerSelection === computerSelection) {
           return `It's a tie! You both chose ${computerSelection} .`;
@@ -82,40 +82,51 @@
         return lose();
       }
 
+      let gameCounter;
+      let playerWinCount;
+      let compWinCount;
+      const button = document.querySelectorAll("button");
+      const roundResult = document.querySelector(".msg");
+      const winMsg = document.querySelector(".winner");
+      const score = document.querySelector(".score");
+      score.setAttribute("style", "white-space:pre;");
+
       //reset all counters
       function resetCount() {
         gameCounter = 0;
-        winCount = 0;
+        playerWinCount = 0;
+        compWinCount = 0;
+        winMsg.textContent = "";
+        score.textContent = "Rounds Played: 0 \r\n";
+        score.textContent += "Player:0 Computer:0";
       }
       resetCount();
-      const button = document.querySelectorAll("button");
-      const resultMsg = document.querySelector(".msg");
+
       button.forEach((button) =>
         button.addEventListener("click", function (e) {
-          resultMsg.textContent = playRound(
+          if (gameCounter > 5) resetCount();
+
+          gameCounter++;
+          roundResult.textContent = playRound(
             button.className,
             getComputerChoice()
           );
+
+          score.textContent = `Rounds Played: ${gameCounter}      \r\nPlayer:${playerWinCount} : Computer:${compWinCount}`;
+
+          if (gameCounter === 5) {
+            playerWinCount > compWinCount
+              ? (winMsg.textContent = "You Win The Game!")
+              : playerWinCount < compWinCount
+              ? (winMsg.textContent = ":( You lost the game...")
+              : (winMsg.textContent = "Ties after 5 game. No one wins.");
+            gameCounter++;
+          }
         })
       );
-
-      // function game() {
-      //   resetCount();
-      //   for (; gameCounter < 5; gameCounter++) {
-      //     playerSelection = prompt(
-      //       "Choose either Rock, Paper or Scissors. Spelling matters",
-      //       ""
-      //     );
-      //     console.log(playRound(playerSelection, getComputerChoice()));
-      //   }
-      //   if (winCount > 0) {
-      //     console.log("You Win!");
-      //   } else if (winCount < 0) {
-      //     console.log("You Lose! :(");
-      //   } else {
-      //     console.log("It's a tie! No one wins");
-      //   }
-      // }
     </script>
   </body>
 </html>
+
+<!-- if gameCount < 5 - play a round when button pressed. Also clear winning
+message. if game logic >=5 - declare a winner, reset shit -->
