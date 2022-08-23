@@ -12,12 +12,15 @@
     <title>Rock Paper Scissors</title>
   </head>
   <body>
+    <div>
+      <button class="rock">ROCK</button>
+      <button class="paper">PAPER</button>
+      <button class="scissors">SCISSORS</button>
+      <h1 class="msg"></h1>
+    </div>
     <script>
       let gameCounter;
-      let playerWinCount;
-      let computerWinCount;
-      let tieCount;
-
+      let winCount;
       //Get random number between (1-3) and assign a value of Rock Paper Scissors
       // adding 1 changes it from 0-2 -> 1-3.
       function getComputerChoice() {
@@ -84,24 +87,35 @@
         gameCounter = 0;
         winCount = 0;
       }
-
-      function game() {
-        resetCount();
-        for (; gameCounter < 5; gameCounter++) {
-          playerSelection = prompt(
-            "Choose either Rock, Paper or Scissors. Spelling matters",
-            ""
+      resetCount();
+      const button = document.querySelectorAll("button");
+      const resultMsg = document.querySelector(".msg");
+      button.forEach((button) =>
+        button.addEventListener("click", function (e) {
+          resultMsg.textContent = playRound(
+            button.className,
+            getComputerChoice()
           );
-          console.log(playRound(playerSelection, getComputerChoice()));
-        }
-        if (winCount > 0) {
-          console.log("You Win!");
-        } else if (winCount < 0) {
-          console.log("You Lose! :(");
-        } else {
-          console.log("It's a tie! No one wins");
-        }
-      }
+        })
+      );
+
+      // function game() {
+      //   resetCount();
+      //   for (; gameCounter < 5; gameCounter++) {
+      //     playerSelection = prompt(
+      //       "Choose either Rock, Paper or Scissors. Spelling matters",
+      //       ""
+      //     );
+      //     console.log(playRound(playerSelection, getComputerChoice()));
+      //   }
+      //   if (winCount > 0) {
+      //     console.log("You Win!");
+      //   } else if (winCount < 0) {
+      //     console.log("You Lose! :(");
+      //   } else {
+      //     console.log("It's a tie! No one wins");
+      //   }
+      // }
     </script>
   </body>
 </html>
