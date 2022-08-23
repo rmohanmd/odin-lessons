@@ -36,8 +36,6 @@
       //Logic of rock paper scissors.
 
       function playRound(playerSelection, computerSelection) {
-        playerSelection = playerSelection.toLowerCase(); //change player entry to all lowercase
-
         function win() {
           playerWinCount++;
           return `you win this round! ${playerSelection} beats ${computerSelection}.`;
@@ -47,15 +45,6 @@
           compWinCount++;
           return `you lose this round! ${computerSelection} beats ${playerSelection}.`;
         }
-
-        // if (
-        //   playerSelection !== "rock" &&
-        //   playerSelection !== "paper" &&
-        //   playerSelection !== "scissors"
-        // ) {
-        //   gameCounter--; //adjust gameCounter to null an invalid game so 5 complete games can be played.
-        //   return "Invalid Choice! please only enter either rock, paper scissors";
-        // }
 
         if (playerSelection === computerSelection) {
           return `It's a tie! You both chose ${computerSelection} .`;
@@ -97,14 +86,22 @@
         playerWinCount = 0;
         compWinCount = 0;
         winMsg.textContent = "";
-        score.textContent = "Rounds Played: 0 \r\n";
-        score.textContent += "Player:0 Computer:0";
+        score.textContent = "Player:0 Computer:0";
       }
       resetCount();
 
+      function declareWin() {
+        if (playerWinCount === 5 || compWinCount === 5) {
+          playerWinCount > compWinCount
+            ? (winMsg.textContent = "You Win The Game!")
+            : (winMsg.textContent = ":( You lost the game...");
+        }
+        return;
+      }
+
       button.forEach((button) =>
         button.addEventListener("click", function (e) {
-          if (gameCounter > 5) resetCount();
+          if (playerWinCount === 5 || compWinCount === 5) resetCount();
 
           gameCounter++;
           roundResult.textContent = playRound(
@@ -112,16 +109,8 @@
             getComputerChoice()
           );
 
-          score.textContent = `Rounds Played: ${gameCounter}      \r\nPlayer:${playerWinCount} : Computer:${compWinCount}`;
-
-          if (gameCounter === 5) {
-            playerWinCount > compWinCount
-              ? (winMsg.textContent = "You Win The Game!")
-              : playerWinCount < compWinCount
-              ? (winMsg.textContent = ":( You lost the game...")
-              : (winMsg.textContent = "Ties after 5 game. No one wins.");
-            gameCounter++;
-          }
+          score.textContent = `Player:${playerWinCount} : Computer:${compWinCount}`;
+          declareWin();
         })
       );
     </script>
